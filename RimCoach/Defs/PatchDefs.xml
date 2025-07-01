@@ -1,0 +1,1255 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Defs>
+
+	<!-- Core Simulation Loop -->
+	<RimCoach.PatchDef>
+		<defName>TickManager</defName>
+		<targetClass>Verse.TickManager</targetClass>
+		<targetMethod>DoSingleTick</targetMethod>
+		<label>Game Tick – Main Simulation Loop</label>
+		<category>Core</category>
+		<severityHint>Critical</severityHint>
+	</RimCoach.PatchDef>
+
+	<!-- Pawn AI -->
+	<RimCoach.PatchDef>
+		<defName>PawnTick</defName>
+		<targetClass>Verse.Pawn</targetClass>
+		<targetMethod>Tick</targetMethod>
+		<label>Pawn AI – Thinking</label>
+		<category>AI</category>
+		<severityHint>High Impact</severityHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>JobDriverTick</defName>
+		<targetClass>Verse.AI.JobDriver</targetClass>
+		<targetMethod>DriverTick</targetMethod>
+		<label>Job Driver – Pawn Actions</label>
+		<category>AI</category>
+		<severityHint>High Impact</severityHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>ThinkNodeTryIssueJob</defName>
+		<targetClass>Verse.AI.ThinkNode_JobGiver</targetClass>
+		<targetMethod>TryIssueJobPackage</targetMethod>
+		<label>AI ThinkNode – Job Assignment</label>
+		<category>AI</category>
+		<severityHint>Moderate Impact</severityHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>WorkGiverScan</defName>
+		<targetClass>RimWorld.WorkGiver_Scanner</targetClass>
+		<targetMethod>PotentialWorkThingsGlobal</targetMethod>
+		<label>WorkGiver – Global Work Scan</label>
+		<category>Jobs</category>
+		<severityHint>Moderate Impact</severityHint>
+	</RimCoach.PatchDef>
+
+	<!-- Pathfinding -->
+	<RimCoach.PatchDef>
+		<defName>PawnPathing</defName>
+		<targetClass>Verse.AI.Pawn_PathFollower</targetClass>
+		<targetMethod>TryMoveNext</targetMethod>
+		<label>Pawn Pathfinding – MoveNext Tick</label>
+		<category>Pathfinding</category>
+		<severityHint>High Impact</severityHint>
+	</RimCoach.PatchDef>
+
+	<!-- Environment / World Systems -->
+	<RimCoach.PatchDef>
+		<defName>WeatherTick</defName>
+		<targetClass>RimWorld.WeatherManager</targetClass>
+		<targetMethod>WeatherManagerTick</targetMethod>
+		<label>Weather Manager – Simulation</label>
+		<category>World Systems</category>
+		<severityHint>Low Impact</severityHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>PlantTick</defName>
+		<targetClass>Verse.Plant</targetClass>
+		<targetMethod>TickLong</targetMethod>
+		<label>Plant Growth – Long Tick</label>
+		<category>World Systems</category>
+		<severityHint>Variable Impact</severityHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>PowerNetTick</defName>
+		<targetClass>RimWorld.PowerNet</targetClass>
+		<targetMethod>PowerNetTick</targetMethod>
+		<label>Power Net – Electricity Simulation</label>
+		<category>World Systems</category>
+		<severityHint>Low Impact</severityHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>LightingGridUpdate</defName>
+		<targetClass>Verse.GlowGrid</targetClass>
+		<targetMethod>GlowGridUpdate_First</targetMethod>
+		<label>Lighting Grid – Glow Update</label>
+		<category>World Systems</category>
+		<severityHint>Moderate Impact</severityHint>
+	</RimCoach.PatchDef>
+
+	<!-- Health Systems -->
+	<RimCoach.PatchDef>
+		<defName>HediffTick</defName>
+		<targetClass>Verse.Hediff</targetClass>
+		<targetMethod>Tick</targetMethod>
+		<label>Hediff – Health Effect Processing</label>
+		<category>Health</category>
+		<severityHint>Variable Impact</severityHint>
+	</RimCoach.PatchDef>
+
+	<!-- Map Components -->
+	<RimCoach.PatchDef>
+		<defName>MapComponentTick</defName>
+		<targetClass>Verse.MapComponent</targetClass>
+		<targetMethod>MapComponentTick</targetMethod>
+		<label>Map Component – World Systems</label>
+		<category>World Systems</category>
+		<severityHint>Moderate Impact</severityHint>
+	</RimCoach.PatchDef>
+
+</Defs>
+<Defs>
+
+	<!-- Framework Mods -->
+	<RimCoach.PatchDef>
+		<defName>HarmonyFramework</defName>
+		<label>Harmony Library – Patching Framework</label>
+		<category>Framework</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Harmony</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>HugsLibFramework</defName>
+		<label>HugsLib – Mod Framework</label>
+		<category>Framework</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>HugsLib</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>JecsToolsFramework</defName>
+		<label>JecsTools – Common Mod Framework</label>
+		<category>Framework</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>JecsTools</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaExpandedFramework</defName>
+		<label>Vanilla Expanded Framework</label>
+		<category>Framework</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Expanded Framework</modHint>
+	</RimCoach.PatchDef>
+
+
+	<!-- Major Overhaul Mods -->
+	<RimCoach.PatchDef>
+		<defName>CombatExtendedMod</defName>
+		<label>Combat Extended – Projectile Overhaul</label>
+		<category>Overhaul</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Combat Extended</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>SaveOurShipMod</defName>
+		<label>Save Our Ship 2/3 – Space Simulation</label>
+		<category>Overhaul</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Save Our Ship</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RimThreadedMod</defName>
+		<label>RimThreaded – Multi-threading Patch</label>
+		<category>Performance</category>
+		<severityHint>Variable Impact</severityHint>
+		<modHint>RimThreaded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RocketManMod</defName>
+		<label>RocketMan – Simulation Optimizer</label>
+		<category>Performance</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>RocketMan</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RuntimeGCMod</defName>
+		<label>RuntimeGC – Performance Cleaner</label>
+		<category>Performance</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>RuntimeGC</modHint>
+	</RimCoach.PatchDef>
+
+	<!-- Harmony Patches Bucket -->
+	<RimCoach.PatchDef>
+		<defName>HarmonyPatchesCategory</defName>
+		<label>Harmony Patches – All Mods</label>
+		<category>Harmony</category>
+	</RimCoach.PatchDef>
+
+</Defs>
+<Defs>
+
+	<!-- Vanilla Expanded Series -->
+	<RimCoach.PatchDef>
+		<defName>VanillaFurnitureExpanded</defName>
+		<label>Vanilla Furniture Expanded</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Furniture Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaExpandedPower</defName>
+		<label>Vanilla Expanded Power</label>
+		<category>Content</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Vanilla Expanded Power</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaAnimalsExpanded</defName>
+		<label>Vanilla Animals Expanded</label>
+		<category>Content</category>
+		<severityHint>Variable Impact</severityHint>
+		<modHint>Vanilla Animals Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaFishingExpanded</defName>
+		<label>Vanilla Fishing Expanded</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Fishing Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaEventsExpanded</defName>
+		<label>Vanilla Events Expanded</label>
+		<category>Content</category>
+		<severityHint>Variable Impact</severityHint>
+		<modHint>Vanilla Events Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaIdeologyExpanded</defName>
+		<label>Vanilla Ideology Expanded</label>
+		<category>Content</category>
+		<severityHint>Variable Impact</severityHint>
+		<modHint>Vanilla Ideology Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaBiotechExpanded</defName>
+		<label>Vanilla Biotech Expanded</label>
+		<category>Content</category>
+		<severityHint>Variable Impact</severityHint>
+		<modHint>Vanilla Biotech Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaGeneticsExpanded</defName>
+		<label>Vanilla Genetics Expanded</label>
+		<category>Content</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Vanilla Genetics Expanded</modHint>
+	</RimCoach.PatchDef>
+
+
+	<!-- Other Big Content Mods -->
+	<RimCoach.PatchDef>
+		<defName>BiomesSeries</defName>
+		<label>Biomes! Series Mods</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Biomes!</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RimCuisine2</defName>
+		<label>RimCuisine 2</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>RimCuisine 2</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>MedievalTimes</defName>
+		<label>Medieval Times</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Medieval Times</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>GeneticRim</defName>
+		<label>Genetic Rim</label>
+		<category>Content</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Genetic Rim</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>AnimalLogic</defName>
+		<label>Animal Logic</label>
+		<category>AI</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Animal Logic</modHint>
+	</RimCoach.PatchDef>
+
+</Defs>
+<Defs>
+
+	<!-- Heavy AI Mods -->
+	<RimCoach.PatchDef>
+		<defName>Hospitality</defName>
+		<label>Hospitality – Guest AI</label>
+		<category>AI</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Hospitality</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>GiddyUpSeries</defName>
+		<label>Giddy Up! Series – Mounted Pathfinding</label>
+		<category>AI</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Giddy Up!</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>ColonyManager</defName>
+		<label>Colony Manager – Job Automation</label>
+		<category>Jobs</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Colony Manager</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RimWorldOfMagic</defName>
+		<label>RimWorld of Magic – Complex AI</label>
+		<category>AI</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>RimWorld of Magic</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>ChildrenSchoolLearning</defName>
+		<label>Children, School and Learning – AI Jobs</label>
+		<category>AI</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Children, School and Learning</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>MiscRobots</defName>
+		<label>Misc. Robots – AI Ticks</label>
+		<category>AI</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Misc. Robots</modHint>
+	</RimCoach.PatchDef>
+
+
+	<!-- Utility / QoL Mods -->
+	<RimCoach.PatchDef>
+		<defName>AllowTool</defName>
+		<label>Allow Tool – Designator Scans</label>
+		<category>Utility</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Allow Tool</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>CommonSense</defName>
+		<label>Common Sense – Smarter Job Checks</label>
+		<category>Utility</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Common Sense</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>SmartMedicine</defName>
+		<label>Smart Medicine – Medical Job Checks</label>
+		<category>Utility</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Smart Medicine</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>Pharmacist</defName>
+		<label>Pharmacist – Medical Scan Jobs</label>
+		<category>Utility</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Pharmacist</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>TradingSpot</defName>
+		<label>Trading Spot – MapComponent</label>
+		<category>Utility</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Trading Spot</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>ReplaceStuff</defName>
+		<label>Replace Stuff – Build Jobs</label>
+		<category>Utility</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Replace Stuff</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>CameraPlus</defName>
+		<label>Camera+ – Rendering Updates</label>
+		<category>UI</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Camera+</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RunAndGun</defName>
+		<label>RunAndGun – Targeting Ticks</label>
+		<category>Jobs</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>RunAndGun</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>Numbers</defName>
+		<label>Numbers – Big Table UI</label>
+		<category>UI</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Numbers</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RimHUD</defName>
+		<label>RimHUD – Per-Pawn UI Overhead</label>
+		<category>UI</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>RimHUD</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RPGStyleInventory</defName>
+		<label>RPG Style Inventory – Extra UI</label>
+		<category>UI</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>RPG Style Inventory</modHint>
+	</RimCoach.PatchDef>
+
+</Defs>
+<Defs>
+
+	<!-- More Content Mods -->
+	<RimCoach.PatchDef>
+		<defName>Rimefeller</defName>
+		<label>Rimefeller – Fuel Systems</label>
+		<category>Content</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Rimefeller</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>Rimatomics</defName>
+		<label>Rimatomics – Nuclear Systems</label>
+		<category>Content</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Rimatomics</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>AndroidTiers</defName>
+		<label>Android Tiers – Custom Pawn AI</label>
+		<category>AI</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Android Tiers</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RimCities</defName>
+		<label>RimCities – Procedural Map Generation</label>
+		<category>World Systems</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>RimCities</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>MapReroll</defName>
+		<label>Map Reroll – Generation Tools</label>
+		<category>World Systems</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Map Reroll</modHint>
+	</RimCoach.PatchDef>
+
+
+	<!-- Faction Mods -->
+	<RimCoach.PatchDef>
+		<defName>FactionDiscovery</defName>
+		<label>Faction Discovery – Extra Factions</label>
+		<category>World Systems</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Faction Discovery</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>AlphaAnimals</defName>
+		<label>Alpha Animals – New Spawns</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Alpha Animals</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RimsenalSeries</defName>
+		<label>Rimsenal Series – Equipment and Factions</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Rimsenal</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>CallOfCthulhuMods</defName>
+		<label>Call of Cthulhu – Horror Systems</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Call of Cthulhu</modHint>
+	</RimCoach.PatchDef>
+
+
+	<!-- Overhauls and Heavy Content -->
+	<RimCoach.PatchDef>
+		<defName>Pawnmorpher</defName>
+		<label>Pawnmorpher – Mutation Systems</label>
+		<category>Health</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Pawnmorpher</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>ChildrenSchoolLearningOverhaul</defName>
+		<label>Children, School and Learning (Overhaul)</label>
+		<category>AI</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Children, School and Learning</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>YayosCombat</defName>
+		<label>Yayo's Combat – Advanced Shooting</label>
+		<category>Overhaul</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Yayo's Combat</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>YayosAnimation</defName>
+		<label>Yayo's Animation – Pawn Animations</label>
+		<category>Overhaul</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Yayo's Animation</modHint>
+	</RimCoach.PatchDef>
+
+
+	<!-- Extras and Misc Popular Mods -->
+	<RimCoach.PatchDef>
+		<defName>InteractionBubbles</defName>
+		<label>Interaction Bubbles – Social UI</label>
+		<category>UI</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Interaction Bubbles</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>WhatTheHack</defName>
+		<label>What the Hack?! – Mechanoid Control</label>
+		<category>AI</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>What the Hack?!</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>SnapOut</defName>
+		<label>Snap Out! – Mental Breaks Control</label>
+		<category>Utility</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Snap Out!</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>DefensivePositions</defName>
+		<label>Defensive Positions – Pawn Jobs</label>
+		<category>Jobs</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Defensive Positions</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>StackXXL</defName>
+		<label>Stack XXL – Storage Optimization</label>
+		<category>Utility</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Stack XXL</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>PickUpAndHaul</defName>
+		<label>Pick Up and Haul – Job Mod</label>
+		<category>Jobs</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Pick Up and Haul</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>CleaningArea</defName>
+		<label>Cleaning Area – Job Mod</label>
+		<category>Jobs</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Cleaning Area</modHint>
+	</RimCoach.PatchDef>
+
+</Defs>
+<Defs>
+
+	<!-- More Utility / QoL Mods -->
+	<RimCoach.PatchDef>
+		<defName>Locks2</defName>
+		<label>Locks 2 – Door Control</label>
+		<category>Utility</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Locks 2</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>DoorsExpanded</defName>
+		<label>Doors Expanded – More Doors</label>
+		<category>Utility</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Doors Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>WallLight</defName>
+		<label>Wall Light – Extra Lighting</label>
+		<category>Utility</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Wall Light</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>PathAvoid</defName>
+		<label>Path Avoid – Pathfinding Rules</label>
+		<category>Pathfinding</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Path Avoid</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>MorePlanning</defName>
+		<label>More Planning – Designator Utility</label>
+		<category>Utility</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>More Planning</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>Blueprints</defName>
+		<label>Blueprints – Build Design Saving</label>
+		<category>Utility</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Blueprints</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>TradingControl</defName>
+		<label>Trading Control – Trader Management</label>
+		<category>Utility</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Trading Control</modHint>
+	</RimCoach.PatchDef>
+
+
+	<!-- Framework and Library Mods -->
+	<RimCoach.PatchDef>
+		<defName>HarmonyLibrary</defName>
+		<label>Harmony 2 Library – Patch Framework</label>
+		<category>Framework</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Harmony 2</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>XMLExtensions</defName>
+		<label>XML Extensions – Modding Framework</label>
+		<category>Framework</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>XML Extensions</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>ModManager</defName>
+		<label>Mod Manager – Load Order Control</label>
+		<category>Framework</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Mod Manager</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>DefEditor</defName>
+		<label>Def Editor – XML Editing Tools</label>
+		<category>Framework</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Def Editor</modHint>
+	</RimCoach.PatchDef>
+
+
+	<!-- Map / Terrain Mods -->
+	<RimCoach.PatchDef>
+		<defName>TerrainOverhaul</defName>
+		<label>Terrain Overhaul – New Terrain Types</label>
+		<category>World Systems</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Terrain Overhaul</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>Nature'sPrettySweet</defName>
+		<label>Nature's Pretty Sweet – Map Features</label>
+		<category>World Systems</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Nature's Pretty Sweet</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RimFlora</defName>
+		<label>RimFlora – Extra Plants</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>RimFlora</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RimHair</defName>
+		<label>RimHair – Extra Hair Styles</label>
+		<category>Content</category>
+		<severityHint>None</severityHint>
+		<modHint>RimHair</modHint>
+	</RimCoach.PatchDef>
+
+</Defs>
+<Defs>
+
+	<!-- More Popular and Niche Mods -->
+	<RimCoach.PatchDef>
+		<defName>MedicalTab</defName>
+		<label>Medical Tab – Extra UI and Scanning</label>
+		<category>UI</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Medical Tab</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RelationsTab</defName>
+		<label>Relations Tab – Extra UI Processing</label>
+		<category>UI</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Relations Tab</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>CharacterEditor</defName>
+		<label>Character Editor – Pawn Editing UI</label>
+		<category>UI</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Character Editor</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>PrepareCarefully</defName>
+		<label>Prepare Carefully – Setup Overhead</label>
+		<category>Utility</category>
+		<severityHint>None</severityHint>
+		<modHint>Prepare Carefully</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RunAndGun2</defName>
+		<label>RunAndGun – Advanced Combat</label>
+		<category>Jobs</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>RunAndGun</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>InteractionBubbles2</defName>
+		<label>Interaction Bubbles – Dialog Overhead</label>
+		<category>UI</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Interaction Bubbles</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>DeepStorage</defName>
+		<label>Deep Storage – Complex Storage Rules</label>
+		<category>Jobs</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Deep Storage</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>PickUpAndHaul2</defName>
+		<label>Pick Up and Haul – Haul Jobs</label>
+		<category>Jobs</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Pick Up and Haul</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>CleaningArea2</defName>
+		<label>Cleaning Area – Cleaning Jobs</label>
+		<category>Jobs</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Cleaning Area</modHint>
+	</RimCoach.PatchDef>
+
+
+	<!-- Additional Framework / Utility Mods -->
+	<RimCoach.PatchDef>
+		<defName>VanillaExpandedFrameworkExtra</defName>
+		<label>Vanilla Expanded Framework – Detection</label>
+		<category>Framework</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Expanded Framework</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>HugsLibExtra</defName>
+		<label>HugsLib – Compatibility Layer</label>
+		<category>Framework</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>HugsLib</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>HarmonyExtra</defName>
+		<label>Harmony – Advanced Patching</label>
+		<category>Framework</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Harmony</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>JecsToolsExtra</defName>
+		<label>JecsTools – Extra Components</label>
+		<category>Framework</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>JecsTools</modHint>
+	</RimCoach.PatchDef>
+
+</Defs>
+<Defs>
+
+	<!-- Vanilla Expanded Addons -->
+	<RimCoach.PatchDef>
+		<defName>VanillaStorytellersExpanded</defName>
+		<label>Vanilla Storytellers Expanded</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Storytellers Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaApparelExpanded</defName>
+		<label>Vanilla Apparel Expanded</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Apparel Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaFurnitureSecurity</defName>
+		<label>Vanilla Furniture Expanded - Security</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Furniture Expanded - Security</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaCookingExpanded</defName>
+		<label>Vanilla Cooking Expanded</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Cooking Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaArmourExpanded</defName>
+		<label>Vanilla Armour Expanded</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Armour Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaBooksExpanded</defName>
+		<label>Vanilla Books Expanded</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Books Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaPlantsExpanded</defName>
+		<label>Vanilla Plants Expanded</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Plants Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaWeaponsExpanded</defName>
+		<label>Vanilla Weapons Expanded</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Weapons Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaMeleeExpanded</defName>
+		<label>Vanilla Melee Expanded</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Melee Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>HospitalityAddons</defName>
+		<label>Hospitality Addons</label>
+		<category>AI</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Hospitality</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>MoreFactionInteraction</defName>
+		<label>More Faction Interaction</label>
+		<category>World Systems</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>More Faction Interaction</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RimWar</defName>
+		<label>RimWar – Dynamic World Simulation</label>
+		<category>World Systems</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>RimWar</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>MedievalOverhaul</defName>
+		<label>Medieval Overhaul – Extra Content</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Medieval Overhaul</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VE_MedicalModule</defName>
+		<label>Vanilla Expanded – Medical Module</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Expanded - Medical Module</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VE_Farming</defName>
+		<label>Vanilla Expanded – Farming</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Expanded - Farming</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VE_Props</defName>
+		<label>Vanilla Expanded – Props</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Expanded - Props</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VE_Art</defName>
+		<label>Vanilla Expanded – Art</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Expanded - Art</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VE_Scribes</defName>
+		<label>Vanilla Expanded – Scribes</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Expanded - Scribes</modHint>
+	</RimCoach.PatchDef>
+
+</Defs>
+<Defs>
+
+	<!-- Vanilla Expanded Animal Packs -->
+	<RimCoach.PatchDef>
+		<defName>VanillaAnimalsLivestock</defName>
+		<label>Vanilla Animals Expanded – Livestock</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Animals Expanded - Livestock</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaAnimalsInsectoids</defName>
+		<label>Vanilla Animals Expanded – Insectoids</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Animals Expanded - Insectoids</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaAnimalsCatsAndDogs</defName>
+		<label>Vanilla Animals Expanded – Cats and Dogs</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Animals Expanded - Cats and Dogs</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaAnimalsArctic</defName>
+		<label>Vanilla Animals Expanded – Arctic</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Animals Expanded - Arctic</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaAnimalsDesert</defName>
+		<label>Vanilla Animals Expanded – Desert</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Animals Expanded - Desert</modHint>
+	</RimCoach.PatchDef>
+
+
+	<!-- Niche but Popular Mods -->
+	<RimCoach.PatchDef>
+		<defName>VanillaEventsExpandedAddons</defName>
+		<label>Vanilla Events Expanded Addons</label>
+		<category>Content</category>
+		<severityHint>Variable Impact</severityHint>
+		<modHint>Vanilla Events Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>TradingControlAdvanced</defName>
+		<label>Trading Control – Advanced</label>
+		<category>Utility</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Trading Control</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>TechAdvancing</defName>
+		<label>Tech Advancing – Research Scaling</label>
+		<category>World Systems</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Tech Advancing</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>MapDesigner</defName>
+		<label>Map Designer – Generation Overhead</label>
+		<category>World Systems</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Map Designer</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>AlphaBiomes</defName>
+		<label>Alpha Biomes – New Biome Features</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Alpha Biomes</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RainbeauRealisticPlanets</defName>
+		<label>Rainbeau Realistic Planets</label>
+		<category>World Systems</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Rainbeau Realistic Planets</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>ExpandedIncidents</defName>
+		<label>Expanded Incidents – More Events</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Expanded Incidents</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>FactionControl</defName>
+		<label>Faction Control – More Faction Options</label>
+		<category>World Systems</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Faction Control</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>RealRuins</defName>
+		<label>Real Ruins – Map Generation</label>
+		<category>World Systems</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Real Ruins</modHint>
+	</RimCoach.PatchDef>
+
+</Defs>
+<Defs>
+
+	<!-- Faction and Quest Mods -->
+	<RimCoach.PatchDef>
+		<defName>EmpireMod</defName>
+		<label>Empire – Faction Simulation</label>
+		<category>World Systems</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Empire</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>QuestFramework</defName>
+		<label>Quest Framework – Dynamic Quests</label>
+		<category>World Systems</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Quest Framework</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaFactionsExpandedSettlers</defName>
+		<label>Vanilla Factions Expanded – Settlers</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Factions Expanded - Settlers</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaFactionsExpandedInsectoids</defName>
+		<label>Vanilla Factions Expanded – Insectoids</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Factions Expanded - Insectoids</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaFactionsExpandedMedieval</defName>
+		<label>Vanilla Factions Expanded – Medieval</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Factions Expanded - Medieval</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaFactionsExpandedPirates</defName>
+		<label>Vanilla Factions Expanded – Pirates</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Factions Expanded - Pirates</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaFactionsExpandedVikings</defName>
+		<label>Vanilla Factions Expanded – Vikings</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Factions Expanded - Vikings</modHint>
+	</RimCoach.PatchDef>
+
+
+	<!-- Utility Expansions -->
+	<RimCoach.PatchDef>
+		<defName>VanillaTraitsExpanded</defName>
+		<label>Vanilla Traits Expanded</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Traits Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaGenesExpanded</defName>
+		<label>Vanilla Genes Expanded</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Genes Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaPowerExpanded</defName>
+		<label>Vanilla Power Expanded</label>
+		<category>Content</category>
+		<severityHint>High Impact</severityHint>
+		<modHint>Vanilla Power Expanded</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaWeaponsExpandedSpacer</defName>
+		<label>Vanilla Weapons Expanded – Spacer</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Weapons Expanded - Spacer</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaWeaponsExpandedLaser</defName>
+		<label>Vanilla Weapons Expanded – Laser</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Weapons Expanded - Laser</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaWeaponsExpandedHeavy</defName>
+		<label>Vanilla Weapons Expanded – Heavy</label>
+		<category>Content</category>
+		<severityHint>Moderate Impact</severityHint>
+		<modHint>Vanilla Weapons Expanded - Heavy</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaWeaponsExpandedQuickdraw</defName>
+		<label>Vanilla Weapons Expanded – Quickdraw</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Weapons Expanded - Quickdraw</modHint>
+	</RimCoach.PatchDef>
+
+	<RimCoach.PatchDef>
+		<defName>VanillaWeaponsExpandedGrenades</defName>
+		<label>Vanilla Weapons Expanded – Grenades</label>
+		<category>Content</category>
+		<severityHint>Low Impact</severityHint>
+		<modHint>Vanilla Weapons Expanded - Grenades</modHint>
+	</RimCoach.PatchDef>
+
+</Defs>

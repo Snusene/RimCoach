@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ModMetaData>
+	<name>RimCoach – AI Performance Advisor</name>
+	<author>Snues</author>
+	<packageId>snues.rimcoach</packageId>
+	<supportedVersions>
+		<li>1.6</li>
+	</supportedVersions>
+	<description>
+		RimCoach is an intelligent performance advisor for RimWorld.
+		It tracks Harmony patches, identifies slow methods and mods, and provides real-time, in-universe AI guidance on how to improve colony performance.
+	</description>
+</ModMetaData>
